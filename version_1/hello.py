@@ -1,5 +1,10 @@
+import os
+from gtts import gTTS
 
-from espeak import espeak
+def say(text):
+	tts = gTTS(text = str(text), lang = "en")
+	tts.save("myfile.mp3")
+	os.system("mpg321 myfile.mp3")
 
 greetings = ["hi", "hello", "hey", "ola", "hallo", "wassup", "yo", "hie", "hii"]
 intro_questions = ["who are you","what are you", "what is your name","what do you do", "what should i call you", "tell me your name"]
@@ -16,26 +21,25 @@ if first_word[-1] in [",", "!", "."]:
     first_word = first_word[0:-1]
 
 if first_word  in greetings:
-    espeak.synth ("Hey There!")
+    say("Hey There!")
     answered = True
 
 for question in intro_questions:
     if question in sentence:
-        espeak.synth("Hey, I am DroidChat.")
+        say("Hey, I am DroidChat.")
         answered = True
 
 for question in birthQs:
 	if question in sentence:
-		espeak.synth("Paras created me.")
+		say("Paras created me.")
 		answered = True
 
 for question in birthD:
 	if question in sentence:
-		espeak.synth("I was born on 8 May 2017.")
+		say("I was born on 8 May 2017.")
 		answered = True
 
 if not answered:
-	espeak.synth ("I don't talk to people who don't know English!")
+	say("I don't talk to people who don't know English!")
 
-while espeak.is_playing:
-	pass
+
