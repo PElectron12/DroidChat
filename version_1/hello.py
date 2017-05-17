@@ -6,7 +6,7 @@ def say(text):
 	tts.save("myfile.mp3")
 	os.system("mpg321 myfile.mp3")
 
-greetings = ["hi", "hello", "hey", "ola", "hallo", "wassup", "yo", "hie", "hii"]
+greetings = ["hi", "hello", "hey", "wassup", "yo"]
 intro_questions = ["who are you","what are you", "what is your name","what do you do", "what should i call you", "tell me your name"]
 birthQs = ["who created you", "how were you created", "how were you born", "who is your father"]
 birthD = ["when is your birthday?", "when were you born?", "how old are you"]
